@@ -41,7 +41,7 @@ export function ContactCard(props: IContact) {
             <p> Name: {props.name} </p>
             <p> Email: {props.email} </p>
             <button onClick={e => dispatch({ type: 'DELETE', id: props.id })}> DELETE </button> {/* // zovem dispatch funkciju koja je predefinisana koja zahteva akciju kojom se kaze kako hocu da menjam stanje. Ona zove moj reducer interno, koji stvarno menja stanje i to se pamti u dispatch funkciji (sa onim setState ali mi to ne vidimo). On pamti kao novo stanje ono sto mu reducer vrati (u nasem slucaju reducer je funkcija contactsReducer) */}
-            
+
             {/* Add a button with an image for editing in the ContactCard component, which navigates to a route
 for editing a contact. The route should include the contact's id property as a route parameter */}
             <button
@@ -58,13 +58,15 @@ for editing a contact. The route should include the contact's id property as a r
 
 //zasto umesto Icontact [] nisam mogla da koristim interfejs 'kontakti'?
 export function ContactList() {
+    const navigate = useNavigate();
     let useC = useContext(ContactsContext) //ovo je vrednost koju dobijam iz konteksta, znaci bice onaj niz. Znaci ne treba da idem preko propsa, nego idem preko contexta. 
     return (
-        <ul>
-            {useC.map((el) => <li key={el.id}> <ContactCard name={el.name} email={el.email} id={el.id} /> </li>)
-            }
-        </ul>
-
+        <div> <button onClick={e => navigate("/add/")}> Add Contact </button>
+            <ul>
+                {useC.map((el) => <li key={el.id}> <ContactCard name={el.name} email={el.email} id={el.id} /> </li>)
+                }
+            </ul>
+        </div>
     )
 
 }
