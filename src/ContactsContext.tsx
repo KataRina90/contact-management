@@ -13,7 +13,7 @@ interface kontakti { children: React.ReactNode }
 export const ContactsContext = React.createContext<IContact[]>([])
 
 //Create ContactsDispatchContext to keep the dispatch function
-const ContactsDispatchContext = createContext<Dispatch<ContactAction>>(null as any) //null jer ne znamo sta je inicijalna vrednost za dispatch funkciju
+export const ContactsDispatchContext = createContext<Dispatch<ContactAction>>(null as any) //null jer ne znamo sta je inicijalna vrednost za dispatch funkciju
 
 /* 3. Create the ContactsProvider component which renders the context provider of 
 ContactsContext with an initial list of contacts. */

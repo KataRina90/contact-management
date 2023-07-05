@@ -6,9 +6,9 @@ import { ContactsContext,IContact } from "./ContactsContext";
 
 //Define the ContactAction type defining reducer actions for adding, editing and deleting contacts.
 export type ContactAction =
-  | { type: "ADD"; id: number; name: 'string'; email: 'string' }
+  | { type: "ADD"; id: number; name: string; email: string}
   | { type: "DELETE"; id: number }
-  | { type: "EDIT"; id: number; name: 'string'; email: 'string' }; //zasto sam ovde morala da definisem novi objekat tipa IContact?
+  | { type: "EDIT"; id: number; name: string; email: string}; //zasto sam ovde morala da definisem novi objekat tipa IContact?
 
 /* Define the contactsReducer function, which accepts an array of IContact and action of type
 ContactAction. It returns a new array of contacts based on the dispatched action. A newly added
